@@ -5,7 +5,6 @@ import PizzaBlock from '../PizzaBlock/PizzaBlock';
 import PizzaSkeleton from '../PizzaBlock/Skeleton';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPizzas } from '../../redux/slices/pizzaSlice';
-import { Link } from 'react-router-dom';
 
 const Home = (props) => {
   const dispatch = useDispatch();

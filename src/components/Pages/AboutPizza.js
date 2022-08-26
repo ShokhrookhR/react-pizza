@@ -20,7 +20,7 @@ const AboutPizza = () => {
     return <h1>Загрузка...</h1>;
   }
   return (
-    <div>
+    <div className="container">
       <div>
         <img src={data.imageUrl} alt="pizza" />
       </div>
