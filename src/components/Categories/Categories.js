@@ -15,7 +15,7 @@ const Categories = React.memo((props) => {
             onClick={() => dispatch(setCategoryId(i))}
             key={i}
             className={categoryId === i ? 'active' : ''}>
-            {p}qss
+            {p}
           </li>
         ))}
       </ul>
