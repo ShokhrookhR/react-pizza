@@ -7,6 +7,14 @@ const Header = (props) => {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
   const { pathname } = useLocation();
+  const isMounted = React.useRef(false);
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items]);
   return (
     <div className="header">
       <div className="container">
@@ -19,7 +27,7 @@ const Header = (props) => {
             </div>
           </NavLink>
         </div>
-        <Search />
+        {pathname !== '/cart' && <Search />}
         <div className="header__cart">
           {pathname !== '/cart' && (
             <NavLink to="/cart" className="button button--cart">

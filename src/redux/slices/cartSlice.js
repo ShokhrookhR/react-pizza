@@ -1,27 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getItemsFromLs } from '../../utils/getItemsFromLS';
 
+const { items, totalPrice } = getItemsFromLs();
 const initialState = {
-  items: [],
-  totalPrice: 0,
+  items: items || [],
+  totalPrice,
 };
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    // addItem: (state, action) => {
-    //   state.items.push(action.payload);
-    //   state.totalPrice = state.items.reduce((sum, obj) => {
-    //     return obj.price + sum;
-    //   }, 0);
-    //   console.log(action.payload);
-    // },
-    // removeItem: (state, action) => {
-    //   state.items = state.items.find((obj) => obj.id !== action.payload.id);
-    //   state.totalPrice = state.items.reduce((sum, obj) => {
-    //     return obj.price + sum;
-    //   }, 0);
-    // },
     addItem: (state, action) => {
       const thisItem = state.items.find((obj) => obj.id === action.payload.id);
       if (thisItem) {
